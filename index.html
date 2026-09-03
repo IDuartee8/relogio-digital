@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Relógio digital com alarme, cronômetro, timer e fuso horário.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Relógio Digital</title>
+</head>
+
+<body>
+
+    <button id="btnFullscreen" class="icon-btn" type="button" aria-label="Entrar em tela cheia">⛶</button>
+
+    <main class="app-card">
+
+        <nav class="tabs" role="tablist" aria-label="Funcionalidades">
+            <button class="tab-btn active" data-tab="relogio" role="tab" aria-selected="true">Relógio</button>
+            <button class="tab-btn" data-tab="alarme" role="tab" aria-selected="false">Alarme</button>
+            <button class="tab-btn" data-tab="cronometro" role="tab" aria-selected="false">Cronômetro</button>
+            <button class="tab-btn" data-tab="timer" role="tab" aria-selected="false">Timer</button>
+        </nav>
+
+        <!-- Painel: Relógio -->
+        <section id="painel-relogio" class="panel" role="tabpanel">
+            <p class="greeting" id="saudacao">Carregando...</p>
+
+            <div class="time" role="timer" aria-live="polite">
+                <div class="digit-group">
+                    <span class="digit" id="horas">00</span>
+                    <span class="label">horas</span>
+                </div>
+                <span class="separator" aria-hidden="true">:</span>
+                <div class="digit-group">
+                    <span class="digit" id="minutos">00</span>
+                    <span class="label">minutos</span>
+                </div>
+                <span class="separator" aria-hidden="true">:</span>
+                <div class="digit-group">
+                    <span class="digit" id="segundos">00</span>
+                    <span class="label">segundos</span>
+                </div>
+            </div>
+
+            <p class="date" id="data">carregando data...</p>
+
+            <label class="field-label" for="fuso">Fuso horário</label>
+            <select id="fuso" class="select-fuso">
+                <option value="local">Horário local do dispositivo</option>
+                <option value="America/Sao_Paulo">Brasília — América/São Paulo</option>
+                <option value="America/New_York">Nova York — EUA</option>
+                <option value="America/Los_Angeles">Los Angeles — EUA</option>
+                <option value="Europe/Lisbon">Lisboa — Portugal</option>
+                <option value="Europe/London">Londres — Reino Unido</option>
+                <option value="Asia/Tokyo">Tóquio — Japão</option>
+                <option value="Australia/Sydney">Sydney — Austrália</option>
+            </select>
+        </section>
+
+        <!-- Painel: Alarme -->
+        <section id="painel-alarme" class="panel" role="tabpanel" hidden>
+            <h2 class="panel-title">Alarme</h2>
+
+            <form id="form-alarme" class="alarm-form">
+                <input type="time" id="input-hora-alarme" required aria-label="Horário do alarme">
+                <input type="text" id="input-nome-alarme" placeholder="Nome (opcional)" maxlength="24" aria-label="Nome do alarme">
+                <button type="submit" class="btn-primary">Adicionar</button>
+            </form>
+
+            <ul id="lista-alarmes" class="alarm-list">
+                <li class="empty-state" id="alarme-vazio">Nenhum alarme cadastrado.</li>
+            </ul>
+        </section>
+
+        <!-- Painel: Cronômetro -->
+        <section id="painel-cronometro" class="panel" role="tabpanel" hidden>
+            <h2 class="panel-title">Cronômetro</h2>
+
+            <p class="stopwatch-display" id="cronometro-display">00:00:00<span class="ms">.00</span></p>
+
+            <div class="controls">
+                <button id="btn-cronometro-iniciar" class="btn-primary">Iniciar</button>
+                <button id="btn-cronometro-volta" class="btn-secondary" disabled>Marcar volta</button>
+                <button id="btn-cronometro-zerar" class="btn-secondary">Zerar</button>
+            </div>
+
+            <ul id="lista-voltas" class="laps-list"></ul>
+        </section>
+
+        <!-- Painel: Timer -->
+        <section id="painel-timer" class="panel" role="tabpanel" hidden>
+            <h2 class="panel-title">Timer</h2>
+
+            <div class="timer-inputs">
+                <div class="timer-field">
+                    <input type="number" id="input-timer-min" min="0" max="180" value="5" aria-label="Minutos">
+                    <label for="input-timer-min">min</label>
+                </div>
+                <div class="timer-field">
+                    <input type="number" id="input-timer-seg" min="0" max="59" value="0" aria-label="Segundos">
+                    <label for="input-timer-seg">seg</label>
+                </div>
+            </div>
+
+            <p class="timer-display" id="timer-display">05:00</p>
+
+            <div class="controls">
+                <button id="btn-timer-iniciar" class="btn-primary">Iniciar</button>
+                <button id="btn-timer-pausar" class="btn-secondary" disabled>Pausar</button>
+                <button id="btn-timer-zerar" class="btn-secondary">Zerar</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

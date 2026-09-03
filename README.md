@@ -40,14 +40,6 @@ O **Relógio Digital** exibe horas, minutos e segundos em tempo real, com uma sa
 | **CSS3** | Estilização, responsividade, animações e tema dinâmico |
 | **JavaScript** | Relógio, alarme, cronômetro, timer, fuso horário e tela cheia |
 
-## 📷 Demonstração
-
-> *Adicione aqui um print ou GIF do relógio em funcionamento, incluindo as diferentes abas.*
-
-```
-[ screenshot do relógio ]
-```
-
 ## 🚀 Como executar o projeto
 
 Como se trata de um projeto estático (HTML + CSS + JS), não é necessário instalar dependências. Basta:
